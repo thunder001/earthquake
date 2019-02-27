@@ -1,7 +1,7 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: 
+  html_document:
+    keep_md: true
 ---
 
 
@@ -16,7 +16,9 @@ knitr::opts_chunk$set(
 
 ```{r}
 library(tidyr)
+library(dplyr)
 library(earthquake)
+library(ggplot2)
 ```
 # earthquake
 
@@ -28,7 +30,7 @@ The goal of earthquake is to facilitate exploration of NOAA Significant Earthqua
 
 ```{r example}
 dim(eq_dat_clean)
-dat <- dplyr::select_(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE, 
+dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE, 
                EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS) %>%
   filter(COUNTRY %in% c("USA", "CHINA"))
 

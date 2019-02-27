@@ -1,13 +1,13 @@
 ---
 title: "Tutorial"
 author: "Chunlei Zheng"
-date: "`r Sys.Date()`"
-output: rmarkdown::github_document
-vignette: >
-  %\VignetteIndexEntry{"Tutorial"}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+date: '`r Sys.Date()`'
 ---
+output: 
+  html_document:
+    keep_md: true
+---
+
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r }
+```{r load packages}
 library(earthquake)
 library(ggplot2)
 library(tidyr)
