@@ -71,5 +71,5 @@ eq_dat_clean %>%
 ```
 
 <p align="center">
-  <img src=".leaflet.png" width="400">
+  <img src="./leaflet.png" width="200">
 </p>
