@@ -2,7 +2,7 @@
 title: "Tutorial"
 author: "Chunlei Zheng"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: rmarkdown::github_document
 vignette: >
   %\VignetteIndexEntry{"Tutorial"}
   %\VignetteEngine{knitr::rmarkdown}
