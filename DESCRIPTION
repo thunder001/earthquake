@@ -1,0 +1,16 @@
+Package: earthquake
+Title: Visualization of NOAA earthquake data
+Version: 0.0.0.9000
+Authors@R: person("Chunlei", "Zheng", email = "zhengcl75@gmail.com", role = c("aut", "cre"))
+Description: The earthquake package is to facilitate exploration of NOAA earthquake data. It mainly provides
+             two functionalities. One is to visualize the earthquake information in a timeline format, 
+             given a time span of countries. Another is to visualize these information in an interactive map.
+Depends: R (>= 3.4.0)
+Imports: ggplot2, dplyr, tidyr, leaflet, lubridate, readr, testthat
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
