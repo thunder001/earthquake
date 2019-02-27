@@ -7,8 +7,6 @@ output:
 
 
 
-
-
 ```r
 library(tidyr)
 library(dplyr)
