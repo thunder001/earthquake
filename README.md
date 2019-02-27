@@ -57,7 +57,7 @@ tl <- ggplot2::ggplot(data = dat, aes(x=DATE,
 tl
 ```
 
-![](README-example-1.png)<!-- -->
+![](./picture/timeline.png)<!-- -->
 
 2. Diplay interactive map to explore earthquake given a country
 
@@ -71,5 +71,5 @@ eq_dat_clean %>%
 ```
 
 <p align="center">
-  <img src="./leaflet.png" width="400">
+  <img src="./picture/leaflet.png" width="800">
 </p>
