@@ -63,6 +63,9 @@ the default plot specification, e.g. [borders()].}
 TimelineLabel geom displays a time series event with labels on it
 }
 \examples{
+fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+eq_dat_clean <- eq_clean_data(eq_dat_raw)
 dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE, 
               EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS)
 dat <- dplyr::filter(dat,COUNTRY \%in\% c("USA", "CHINA"))

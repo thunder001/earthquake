@@ -24,9 +24,11 @@ stat_timeline <- function(mapping = NULL, data = NULL, xmin=NULL, xmax=NULL, geo
 }
 
 
-#' @rdname ggplot2-ggproto
-#' @format NULL
-#' @usage NULL
+#' Timeline Stat
+#'
+#' @importFrom ggplot2 ggproto 
+#' @importFrom dplyr filter
+#'
 #' @export
 
 StatTimeline <- ggplot2::ggproto("StatTimeline", ggplot2::Stat,

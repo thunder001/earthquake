@@ -57,6 +57,9 @@ The Timeline geom is used to display time series events ranging from one
 time point to another time point
 }
 \examples{
+fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+eq_dat_clean <- eq_clean_data(eq_dat_raw)
 dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE,
               EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS) 
 dat <- dplyr::filter(dat, COUNTRY \%in\% c("USA", "CHINA"))

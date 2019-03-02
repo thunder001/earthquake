@@ -15,3 +15,10 @@ return cleaned LOCATION_NAME}
 This function speciallly extracts location information from
 LOCATION_NAME column
 }
+\examples{
+fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+locations <- eq_location_clean(eq_dat_raw$LOCATION_NAME)
+locations
+
+}

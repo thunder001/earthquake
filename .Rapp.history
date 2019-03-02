@@ -1,0 +1,86 @@
+library(samr)
+runSAM()
+runsam
+library(ROCR)    data(ROCR.simple)    pred <- prediction( ROCR.simple$predictions, ROCR.simple$labels)    perf <- performance(pred,"tpr","fpr")plot(perf)
+perf1 <- performance(pred, "prec", "rec")    plot(perf1)
+perf1 <- performance(pred, "sens", "spec")    plot(perf1)
+yes
+y
+ver()
+version()
+install.packages("rJava",,"http://rforge.net/",type="source")
+library(rJava)
+y
+J("java.lang.System","getProperty","java.version")
+library(rJava)
+J("java.lang.System","getProperty","java.version")
+.jinit()
+J("java.lang.System","getProperty","java.version")
+vi ~/bash_profile
+vi ~/.bash_profile
+library(rJava)
+paste(c("Yes", "No"), sep="_")
+LETTERS
+letters
+random_int
+random_ints
+check_n_value <- function(n) {#
+        if(n > 0) {#
+                stop("n should be <= 0")#
+        }#
+}#
+error_if_n_is_greater_than_zero <- function(n){#
+        check_n_value(n)#
+        n#
+}#
+error_if_n_is_greater_than_zero(5)
+traceback()
+trace()
+trace("check_n_value")
+check_n_value <- function(n) {#
+        if(n > 0) {#
+                stop("n should be <= 0")#
+        }#
+}#
+error_if_n_is_greater_than_zero <- function(n){#
+        check_n_value(n)#
+        n#
+}#
+error_if_n_is_greater_than_zero(5)
+trace("check_n_value")
+error_if_n_is_greater_than_zero(5)
+as.list(body(check_n_value))
+as.list(body(check_n_value)[[2]])
+trace("check_n_value", browser, at = list(c(2, 3)))
+check_n_value
+body(check_n_value)
+trace("check_n_value", quote({#
+        if(n == 5) {#
+                message("invoking the browser")#
+                browser()#
+        }#
+}), at = 2)
+body(check_n_value)
+debug(glm)
+debugonce(glm)
+options()
+check_n_value <- function(n) {if(n > 0) {stop("n should be <= 0")}}error_if_n_is_greater_than_zero <- function(n){check_n_value(n)n}error_if_n_is_greater_than_zero(5)
+traceback()
+brower()
+browser()
+exit
+exit()
+q()
+browser(2)
+check_n_value <- function(n) {if(n > 0) {stop("n should be <= 0")}}error_if_n_is_greater_than_zero <- function(n){check_n_value(n)n}error_if_n_is_greater_than_zero(5)
+check_n_value <- function(n) {if(n > 0) {browser()stop("n should be <= 0")}}error_if_n_is_greater_than_zero <- function(n){check_n_value(n)n}error_if_n_is_greater_than_zero(5)
+trace("check_n_value")
+check_n_value <- function(n) {if(n > 0) {browser()stop("n should be <= 0")}}error_if_n_is_greater_than_zero <- function(n){check_n_value(n)n}error_if_n_is_greater_than_zero(5)
+trace("check_n_value")
+error_if_n_is_greater_than_zero(5)
+getwd()
+setwd("/Users/zhengc/Learning/R-software-development/capstone/earthquake")
+R CMD check
+check
+R CMD
+R

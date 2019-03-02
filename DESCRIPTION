@@ -1,6 +1,6 @@
 Package: earthquake
 Title: Visualization of NOAA earthquake data
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Chunlei", "Zheng", email = "zhengcl75@gmail.com", role = c("aut", "cre"))
 Description: The earthquake package is to facilitate exploration of NOAA earthquake data. It mainly provides
              two functionalities. One is to visualize the earthquake information in a timeline format, 

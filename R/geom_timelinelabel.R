@@ -2,7 +2,7 @@
 #' 
 #' TimelineLabel geom displays a time series event with labels on it
 #' 
-#' @import dplyr 
+#' @import dplyr readr
 #' @param xmin Stard date
 #' @param xmax End date
 #' @param n_max number of top n earquakes
@@ -10,6 +10,9 @@
 #' 
 #' @export
 #' @examples 
+#' fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+#' eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+#' eq_dat_clean <- eq_clean_data(eq_dat_raw)
 #' dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE, 
 #'               EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS)
 #' dat <- dplyr::filter(dat,COUNTRY %in% c("USA", "CHINA"))
@@ -44,9 +47,12 @@ geom_timeline_label <- function(mapping = NULL, data = NULL, n_max =NULL, xmin=N
 }
 
 
-#' @rdname ggplot2-ggproto
-#' @format NULL
-#' @usage NULL
+#' Timelinelabel Geom
+#'
+#' @importFrom ggplot2 ggproto aes draw_key_point
+#' @importFrom grid polylineGrob segmentsGrob textGrob gList
+#' @importFrom dplyr group_by top_n ungroup
+#'
 #' @export
 GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                              required_aes = c("x", "label"),
@@ -67,8 +73,8 @@ GeomTimelineLabel <- ggplot2::ggproto("GeomTimelineLabel", ggplot2::Geom,
                                #   
                                # }
                                
-                               data <- group_by(data, group) %>%
-                                 top_n(n_max, size) %>%
+                               data <- dplyr::group_by(data, group) %>%
+                                 dplyr::top_n(n_max, size) %>%
                                  ungroup
                                
                                # if (nrow(data) < n_max) {

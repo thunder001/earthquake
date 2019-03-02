@@ -4,7 +4,7 @@
 #' time point to another time point
 #' 
 #' @import ggplot2
-#' @import dplyr
+#' @import dplyr 
 #' 
 #' @param mapping Set of aesthetic mappings created by [aes()] or
 #'   [aes_()]. If specified and `inherit.aes = TRUE` (the
@@ -40,10 +40,12 @@
 #'   that define both data and aesthetics and shouldn't inherit behaviour from
 #'   the default plot specification, e.g. [borders()].
 #' @param ... Additional parameters to the `geom` and `stat`.
-#' @
 #' 
 #' @export
 #' @examples
+#' fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+#' eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+#' eq_dat_clean <- eq_clean_data(eq_dat_raw)
 #' dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE,
 #'               EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS) 
 #' dat <- dplyr::filter(dat, COUNTRY %in% c("USA", "CHINA"))
@@ -73,11 +75,11 @@ geom_timeline <- function(mapping = NULL, data = NULL, geom = "Timeline",
   )
 }
 
-
-#' @rdname ggplot2-ggproto
-#' @import ggplot2
-#' @format NULL
-#' @usage NULL
+#' Timeline Geom
+#' 
+#' @importFrom ggplot2 ggproto aes draw_key_point
+#' @importFrom grid gList pointsGrob polylineGrob gpar 
+#'
 #' @export
 GeomTimeline <- ggplot2::ggproto("GeomTimeline", ggplot2::Geom,
                         required_aes = c("x"),

@@ -9,10 +9,10 @@ context("Test functions in the package")
 
 fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
 eq_dat_raw <- as.data.frame(read_tsv(fname)) 
+eq_dat_clean <- eq_clean_data(eq_dat_raw)
 
 test_that("eq_clean_data", {
   
-  eq_dat_clean <- eq_clean_data(eq_dat_raw)
   expect_that(eq_dat_clean, is_a("data.frame"))
   expect_that(eq_dat_clean$DATE, is_a("Date"))
 })

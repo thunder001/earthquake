@@ -2,20 +2,26 @@
 title: "Tutorial"
 author: "Chunlei Zheng"
 date: '`r Sys.Date()`'
----
-output: rmarkdown::github_document
-  
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
+always_allow_html: yes
+vignette: "%\\VignetteIndexEntry{Vignette Title} \n%\\VignetteEngine{knitr::rmarkdown}
+  \n%\\VignetteEncoding{UTF-8}\n"
 ---
 
 
-```{r setup, include = FALSE}
+
+```{r setup, include = FALSE, warning=FALSE}
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
 
-```{r load packages}
+```{r load packages, warning=FALSE, message=FALSE}
 library(earthquake)
 library(ggplot2)
 library(tidyr)
@@ -28,34 +34,32 @@ National Oceanographic and Atmospheric Administration (NOAA) collects significan
 
 The overall goal of the R package is to work with this dataset and provide the tools for processing and visualizing the data so that others may extract some use out of the information embedded within.
 
+## Clean data
+```{r message=FALSE}
+fname <- system.file("extdata", "signif.txt.tsv", package="earthquake")
+eq_dat_raw <- as.data.frame(readr::read_tsv(fname))
+eq_dat_clean <- earthquake::eq_clean_data(eq_dat_raw)
+class(eq_dat_clean$DATE)
+```
 
 ## Timeline visualization
 Given countries, we can use geom_timeline to visualize three types of information: the times at which earthquakes occur within certain countries, the magnitudes (i.e. Richter scale value) and the number of deaths associated with each earthquake. For example,
 
-1. Cleaned data has been included in this package, first let look at these data
-
-```{r }
-# fname <- system.file("extdata", "signif.txt.tsv", package="earthquake")
-# eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
-# eq_dat_clean <- earthquake::eq_clean_data(eq_dat_raw)
-str(earthquake::eq_dat_clean)
-```
-
-
-2. Choose the countries you want to look at
-```{r example}
-dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, LATITUDE, 
-               EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS) %>%
+**1. Choose the countries you want to look at**
+```{r warning=FALSE}
+dat <- dplyr::select(eq_dat_clean, DATE, COUNTRY, LOCATION_NAME, LONGITUDE, 
+                     LATITUDE, EQ_MAG_MS, EQ_PRIMARY, TOTAL_DEATHS) %>%
   filter(COUNTRY %in% c("USA", "CHINA"))
 ```
 
-3. Give  time span parameters and draw a timeline
+**2. Give  time span parameters and draw a timeline**
 ```{r}
 tl <- ggplot2::ggplot(data = dat, aes(x=DATE, 
                               size=as.numeric(EQ_PRIMARY),
                               fill=as.numeric(TOTAL_DEATHS),
                               y=COUNTRY)) +
-  geom_timeline(xmin=as.Date("2000-01-01"), xmax=as.Date("2017-01-01"), stat="Timeline") +
+  geom_timeline(xmin=as.Date("2000-01-01"), xmax=as.Date("2017-01-01"), 
+                stat="Timeline") +
   scale_fill_gradient(name="# Total deaths") +
   scale_size_continuous(name="Richter scale value") +
   theme_timeline
@@ -63,14 +67,16 @@ tl <- ggplot2::ggplot(data = dat, aes(x=DATE,
 tl
 ```
 
-If you want to know more specific locations for big earthquakes, geom_timeline_label can add this information. For example,
+**3. If you want to know more specific locations for big earthquakes, geom_timeline_label can add this information. For example,**
 ```{r}
 tl <- ggplot2::ggplot(data = dat, aes(x=DATE, 
                               size=as.numeric(EQ_PRIMARY),
                               fill=as.numeric(TOTAL_DEATHS),
                               y=COUNTRY)) +
-  geom_timeline(xmin=as.Date("2000-01-01"), xmax=as.Date("2017-01-01"), stat="Timeline") +
-  geom_timeline_label(aes(label = LOCATION_NAME),n_max=5, xmin=as.Date("2000-01-01"), xmax=as.Date("2017-01-01")) +
+  geom_timeline(xmin=as.Date("2000-01-01"), xmax=as.Date("2017-01-01"), 
+                stat="Timeline") +
+  geom_timeline_label(aes(label = LOCATION_NAME),n_max=5, xmin=as.Date("2000-01-01"), 
+                      xmax=as.Date("2017-01-01")) +
   scale_fill_gradient(name="# Total deaths") +
   scale_size_continuous(name="Richter scale value") +
   theme_timeline

@@ -9,6 +9,11 @@
 #' return a clean dataframe
 #' 
 #' @export
+#' @examples 
+#' fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+#' eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+#' eq_dat_clean <- eq_clean_data(eq_dat_raw)
+
 
 eq_clean_data <- function(df) {
   dates <- paste0(df$YEAR, "-", df$MONTH, "-", df$DAY)
@@ -46,6 +51,12 @@ eq_clean_data <- function(df) {
 #' return cleaned LOCATION_NAME
 #' 
 #' @export
+#' @examples 
+#' fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+#' eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+#' locations <- eq_location_clean(eq_dat_raw$LOCATION_NAME)
+#' locations
+#' 
 eq_location_clean <- function(loc) {
   loc <- gsub(".*: *", "", loc)
   loc <- tolower(loc)

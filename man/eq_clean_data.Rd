@@ -15,3 +15,8 @@ return a clean dataframe}
 This function performs two task: merge YEAR, MONTH, DAY into one DATE column
 and convert LONGITUDE AND LATITUDE into numeric.
 }
+\examples{
+fname <- system.file("extdata", "signif.txt.tsv", package = "earthquake")
+eq_dat_raw <- as.data.frame(readr::read_tsv(fname)) 
+eq_dat_clean <- eq_clean_data(eq_dat_raw)
+}
