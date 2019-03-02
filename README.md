@@ -1,17 +1,11 @@
 
-```r
-library(tidyr)
-library(dplyr)
-library(earthquake)
-library(ggplot2)
-```
 # Earthquake
 
 The goal of earthquake is to facilitate exploration of NOAA Significant Earthquakes dataset
 
 ## Usage
 
-**1. Install package
+**1. Install package**
 
 ```r
 library(earthquake)
