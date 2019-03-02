@@ -33,7 +33,7 @@ tl <- ggplot2::ggplot(data = dat, aes(x=DATE,
 tl
 ```
 
-![](vigenettes/README_figs/timeline.png)<!-- -->
+![](vignettes/README_figs/timeline.png)<!-- -->
 
 **2. Diplay interactive map to explore earthquake given a country**
 
@@ -46,4 +46,4 @@ eq_dat_clean %>%
   eq_map(annot_col = "popup_text")
 ```
 
-![](vigenettes/README_figs/timeline.png)<!-- -->
+![](vignettes/README_figs/leaflet.png)<!-- -->
