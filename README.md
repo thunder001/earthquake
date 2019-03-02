@@ -11,7 +11,14 @@ The goal of earthquake is to facilitate exploration of NOAA Significant Earthqua
 
 ## Usage
 
-**1. Display earthquake timeline given countries with a date inteval**
+**1. Install package
+
+```r
+library(earthquake)
+```
+
+
+**2. Display earthquake timeline given countries with a date inteval**
 
 
 ```r
@@ -35,7 +42,7 @@ tl
 
 ![](vignettes/README_figs/timeline.png)<!-- -->
 
-**2. Diplay interactive map to explore earthquake given a country**
+**3. Diplay interactive map to explore earthquake given a country**
 
 
 
