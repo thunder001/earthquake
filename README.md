@@ -1,4 +1,6 @@
 
+[Travis](https://travis-ci.org/thunder001/earthquake.svg?branch=master)
+
 # Earthquake
 
 The goal of earthquake is to facilitate exploration of NOAA Significant Earthquakes dataset
