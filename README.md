@@ -10,6 +10,7 @@ The goal of earthquake is to facilitate exploration of NOAA Significant Earthqua
 **1. Install package**
 
 ```r
+devtools::install_github("thunder001/earthquake")
 library(earthquake)
 ```
 
